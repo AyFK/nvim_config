@@ -292,6 +292,7 @@ nnoremap <C-Down> <C-e>                         " CTRL + DO- move w/out courser
 " CTRL + UP or DOWN arrow to move while curser stays on the same line
 nnoremap <C-Up> <C-y>
 nnoremap <C-Down> <C-e>
+"""
 
 " clear the last used search pattern
 cmap // let @/ = ""
