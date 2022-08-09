@@ -196,7 +196,7 @@ command Lr w <bar> execute 'CMDexe' <bar> cd %:h <bar> execute
 "————————————————
 "                 — DEPENDENCIES —
 " vim-plug(s)                       : vimtex
-" PATH environmental variables(s)   : C:\Users\...\Evince-X.XX.X\bin
+" PATH environmental variables(s)   :
 "
 " macro opens local ethereum emulator
 tnoremap ethnet export NODE_OPTIONS=--openssl-legacy-provider && ganache-cli
