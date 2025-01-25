@@ -29,12 +29,12 @@ set tabline=%!MyTabLine()
 " pressing 'o' within fold creates a new line within fold
 nnoremap <expr> o foldlevel('.') && foldclosed('.') == -1 ? "A\<CR>" : "o"
 
+
 " loads weird in .lua
-colorscheme codedark
-
-
-
-
+let install_path = stdpath("data") . "/site/pack/packer/start/vim-code-dark"
+if isdirectory(install_path)
+  colorscheme codedark
+end
 
 
 
