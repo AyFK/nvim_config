@@ -1,3 +1,6 @@
+-- sets the fileformat to unix
+vim.opt.fileformats = { "unix" }
+
 -- syntax highlight
 vim.opt.syntax = "ON"
 
