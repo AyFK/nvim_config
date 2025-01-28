@@ -55,14 +55,14 @@ return packer.startup(function(use)
 
 
     -- colorscheme
-    use "tomasiser/vim-code-dark"
+    use "martinsione/darkplus.nvim"
 
 
     -- vimtex
     use "lervag/vimtex"
 
-    -- Automatically set up your configuration after cloning packer.nvim
-    -- Put this at the end after all plugins
+    -- automatically set up your configuration after cloning packer.nvim
+    -- put this at the end after all plugins
     if PACKER_BOOTSTRAP then
         require("packer").sync()
     end

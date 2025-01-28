@@ -11,7 +11,10 @@ dofile(config_path .. "/autoconf/compilers.lua")
 dofile(config_path .. "/autoconf/plugins.lua")
 dofile(config_path .. "/autoconf/lsp.lua")
 
--- for when lua translation is difficult
+-- for when lua translation is difficult use vimscript
+--
+-- see autoconf/vimscripts.vim for instruction on how to resolve
+-- potential errors loading in linux
 vim.cmd("source " .. config_path .. "/autoconf/vimscripts.vim")
 
 
