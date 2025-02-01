@@ -1,10 +1,3 @@
-" if you get an E5113 error or similar, simply:
-" (1) nvim vimscripts.vim
-" (2) :set fileformat=unix
-" (3) :x
-" now the init.lua file should work as expected.
-
-
 "——————————————————————————————————————————————
 "
 " file for when .lua solution is more difficult
@@ -22,12 +15,12 @@ function! MyTabLine()
 
     " highlight the active tab and format with brackets
     if i == tabpagenr()
-      let s .= "%#TabLineSel#" . i . ": " . filename . "%T "
+        let s .= "%#TabLineSel# ➤  " . i . ": " . filename . " %T "
     else
-      let s .= "%#TabLine#[" . i . ": " . filename . "]%T "
+        let s .= "%#TabLine#[" . i . ": " . filename . "]%T "
     endif
-  endfor
-  return s
+        endfor
+    return s
 endfunction
 
 set tabline=%!MyTabLine()
@@ -38,9 +31,9 @@ nnoremap <expr> o foldlevel(".") && foldclosed(".") == -1 ? "A\<CR>" : "o"
 
 
 " loads weird in .lua, load colorscheme here instead
-let install_path = stdpath("data") . "/site/pack/packer/start/darkplus.nvim"
+let install_path = stdpath("data") . "/site/pack/packer/start/jellybeans-nvim"
 if isdirectory(install_path)
-    colorscheme darkplus
+    colorscheme jellybeans-nvim
 else
     colorscheme wildcharm
 end

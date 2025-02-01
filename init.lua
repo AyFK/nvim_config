@@ -10,6 +10,9 @@ dofile(config_path .. "/autoconf/rice.lua")
 dofile(config_path .. "/autoconf/compilers.lua")
 dofile(config_path .. "/autoconf/plugins.lua")
 dofile(config_path .. "/autoconf/lsp.lua")
+dofile(config_path .. "/autoconf/statusline.lua")
+dofile(config_path .. "/autoconf/gitsigns.lua")
+
 
 -- for when lua translation is difficult use vimscript
 --

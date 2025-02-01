@@ -55,11 +55,14 @@ return packer.startup(function(use)
 
 
     -- colorscheme
-    use "martinsione/darkplus.nvim"
-
+    use "rktjmp/lush.nvim" -- needed for jellybeans
+    use "metalelf0/jellybeans-nvim"
 
     -- vimtex
     use "lervag/vimtex"
+
+    -- gitsigns
+    use "lewis6991/gitsigns.nvim"
 
     -- automatically set up your configuration after cloning packer.nvim
     -- put this at the end after all plugins
