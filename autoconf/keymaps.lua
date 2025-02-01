@@ -1,5 +1,5 @@
 
-function map(mode, lhs, rhs, opts)
+function map(mode, lhs, rhs)
     local options = { noremap = true, silent = true }
     vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
