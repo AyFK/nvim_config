@@ -1,6 +1,9 @@
 -- sets the fileformat to unix
 vim.opt.fileformats = { "unix" }
 
+-- support swedish 'Å' 'Ä' 'Ö'
+vim.env.LANG = "sv_SE.UTF-8"
+
 -- unnecessary shadafile
 vim.opt.shadafile = "NONE"
 

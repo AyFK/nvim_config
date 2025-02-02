@@ -110,7 +110,40 @@ vim.o.signcolumn = "yes"
 
 
 
+-- - - - - - - - - - - - - - - - - - - - - - - - -
+-- diagnostic message (on hover) settings
+-- - - - - - - - - - - - - - - - - - - - - - - - -
+
+-- disable inline diagnostic messages
+vim.diagnostic.config({
+  virtual_text = false,
+})
+
+-- set a low update time so 'CursorHold' fires quickly
+vim.o.updatetime = 250
+
+-- trigger for 'Normal mode'
+vim.api.nvim_create_autocmd("CursorHold", {
+  pattern = "*",
+  callback = function()
+    vim.diagnostic.open_float(nil, { focusable = false, scope = "cursor" })
+  end,
+})
+
+-- trigger for 'Insert mode'
+vim.api.nvim_create_autocmd("CursorHoldI", {
+  pattern = "*",
+  callback = function()
+    vim.diagnostic.open_float(nil, { focusable = false, scope = "cursor" })
+  end,
+})
+
+
+
+
+-- - - - - - - - - - - - - - - - - - - - - - - - -
 -- treesitter settings
+-- - - - - - - - - - - - - - - - - - - - - - - - -
 local treesitter = require("nvim-treesitter.configs")
 
 treesitter.setup({
@@ -124,3 +157,4 @@ treesitter.setup({
     },
     indent = { enable = true, disable = { "" } },
 })
+
