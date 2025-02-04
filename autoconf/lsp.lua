@@ -36,7 +36,8 @@ local function on_attach(client, bufnr)
     -- keybindings for LSP actions
     local keymap = vim.keymap.set
     keymap("n", "gk", vim.lsp.buf.definition, opts) -- go to source (undo w/ CTRL + o)
-    keymap("n", "K", vim.lsp.buf.hover, opts)       -- get descr of source
+    keymap("n", "K", vim.lsp.buf.hover, opts)       -- show description of source
+    keymap("n", "gr", vim.lsp.buf.references, opts) -- find references
 end
 
 
