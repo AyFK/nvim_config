@@ -19,18 +19,22 @@ end
 
 function _G.modifiedSymbol()
   if vim.bo.modified then
-    return "[✗]"
+    return "꙳"
   else
-    return "[✓]"
+    return " "
   end
 end
 
+vim.defer_fn(function()       -- defer custom highlight, apply after colorscheme
+  vim.cmd("highlight StatusModifiedColor guifg=#F91C49 guibg=#1C1C1C")
+end, 50)
+
+
 vim.o.statusline =
-    " %{v:lua.getModeName()} " .. -- display mode
-    " %t " ..                     -- file name (only the tail)
-    " %l,%c " ..                  -- current line and column
-    " %p%% " ..                   -- percentage through the file
-    --"%=" ..                       -- right-align next section
-    " %{v:lua.modifiedSymbol()}"  -- custom modified indicator
-
-
+    " %{v:lua.getModeName()} " ..
+    " %t" ..                        -- filename
+    "%#StatusModifiedColor#" ..     -- start red
+    "%{v:lua.modifiedSymbol()}" ..  -- the modified symbol in red
+    "%*" ..                         -- reset to the default color
+    " %l,%c " ..                    -- display row, column
+    " %p%% "                        -- % of file
