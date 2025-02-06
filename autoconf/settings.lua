@@ -1,7 +1,10 @@
 -- sets the fileformat to unix
 vim.opt.fileformats = { "unix" }
 
--- support swedish 'Å' 'Ä' 'Ö'
+-- set encoding
+vim.opt.encoding = "utf-8"
+
+-- support swedish 'Åå' 'Ää' 'Öö'
 vim.env.LANG = "sv_SE.UTF-8"
 
 -- unnecessary shadafile
@@ -56,14 +59,11 @@ vim.opt.foldcolumn = "1"
 -- always show the tabline
 vim.opt.showtabline = 2
 
--- set encoding
-vim.opt.encoding = "utf-8"
-
 -- spelling settings
 vim.opt.spell = false
 vim.opt.spelllang = {"en_us", "sv_se"}
 
-
+-- trailing spaces
 vim.opt.list = true
 vim.opt.listchars = {
     trail = "█", -- display trailing spaces
