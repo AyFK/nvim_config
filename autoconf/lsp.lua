@@ -5,11 +5,11 @@ if not lspconfig_status_ok then
 end
 
 
-
 -- define the LSP servers to use
 local servers = {
     "pyright",
     "clangd",
+    "rust_analyzer",
     "lua_ls",
 }
 

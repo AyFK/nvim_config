@@ -25,7 +25,7 @@ end, 50)
 function _G.getFileName()
   local fname = vim.fn.expand("%:t")
   if vim.bo.modified then
-    -- when moified, wrap the filename in color.
+    -- when moified, wrap the filename in color
     return "%#StatusModifiedColor#" .. fname .. "%*"
   else
     return fname

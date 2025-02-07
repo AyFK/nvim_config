@@ -25,10 +25,8 @@ vim.opt.mouse = "a"
 -- allow cursor to move one column beyond EOL
 vim.opt.virtualedit = "onemore"
 
--- display line numbers
+-- display line numbers /w relative
 vim.opt.number = true
-
--- enable relative line numbers
 vim.opt.relativenumber = true
 
 -- open new splits to the right and below
@@ -67,5 +65,6 @@ vim.opt.spelllang = {"en_us", "sv_se"}
 vim.opt.list = true
 vim.opt.listchars = {
     trail = "█", -- display trailing spaces
+    tab = "· ",
 }
 
