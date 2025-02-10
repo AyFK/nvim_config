@@ -9,7 +9,9 @@ vim.cmd("hi LineNr guibg=NONE ctermbg=NONE")
 vim.cmd("hi NonText guibg=NONE ctermbg=NONE")
 
 -- column fold color
-vim.cmd("highlight FoldColumn guifg=#60707C")
+vim.defer_fn(function()       -- defer custom highlight, apply after colorscheme
+  vim.cmd("highlight FoldColumn guifg=#60707C")
+end, 50)
 
 
 
