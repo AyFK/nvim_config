@@ -7,10 +7,11 @@ end
 
 -- define the LSP servers to use
 local servers = {
-    "pyright",
+    --"pyright",
     "clangd",
     "rust_analyzer",
     "lua_ls",
+    "texlab"
 }
 
 
@@ -41,6 +42,12 @@ local function on_attach(client, bufnr)
 end
 
 
+-- add boarder on .hover
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+    border = "double",
+})
+
+
 -- capabilities for nvim-cmp
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 local cmp_nvim_lsp_status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
@@ -67,20 +74,6 @@ lspconfig.lua_ls.setup{
         }
     }
 }
-
---[[ // may work one day...
-lspconfig.clangd.setup{
-  settings = {
-    clangd = {
-      diagnostics = {
-        UnusedIncludes = "None",    -- disables unused include warnings
-        MissingIncludes = "None",     -- disables missing include warnings (if desired)
-      },
-    },
-  },
-}
-]]
-
 
 
 -- nvim-cmp configuration
@@ -111,9 +104,7 @@ vim.o.signcolumn = "yes"
 
 
 
--- - - - - - - - - - - - - - - - - - - - - - - - -
 -- diagnostic message (on hover) settings
--- - - - - - - - - - - - - - - - - - - - - - - - -
 
 -- disable inline diagnostic messages
 vim.diagnostic.config({
@@ -148,7 +139,7 @@ vim.api.nvim_create_autocmd("CursorHoldI", {
 local treesitter = require("nvim-treesitter.configs")
 
 treesitter.setup({
-    ensure_installed = { "python", "cpp", "lua" }, -- add your desired languages
+    ensure_installed = { "python", "cpp", "lua", "rust" }, -- add your desired languages
     sync_install = false,
     highlight = {
         enable = true, -- enable Tree-sitter highlighting
