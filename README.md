@@ -1,1 +1,1 @@
-a light and fast neovim setup
+My current neovim setup. Needs to be light and fast.

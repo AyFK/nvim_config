@@ -18,7 +18,19 @@ map("n", "<C-k>", "<C-w>k")
 map("n", "<C-l>", "<C-w>l")
 
 -- explorer shortcut
-map("n", "<C-n>", ":Lex 15 %:p:h<CR>")
+vim.keymap.set("n", "<C-n>", function()
+  vim.g.prev_win = vim.api.nvim_get_current_win()  -- remember current window ID
+  vim.cmd("Lex 15 %:p:h")                          -- open netrw
+end, { silent = true })
+
+-- split most recent window ID
+vim.cmd([[
+  augroup NetrwSplitMappings
+  autocmd!
+  autocmd FileType netrw nnoremap <buffer> v :execute 'call win_gotoid(g:prev_win)'<bar> vsplit <C-R>=expand('%:p:h') . '/' . expand('<cfile>')<CR><CR>
+  autocmd FileType netrw nnoremap <buffer> o :execute 'call win_gotoid(g:prev_win)'<bar> split <C-R>=expand('%:p:h') . '/' . expand('<cfile>')<CR><CR>
+  augroup END
+]])
 
 -- window navigation in :Lex (netrw)
 vim.cmd([[
@@ -31,14 +43,7 @@ vim.cmd([[
   augroup END
 ]])
 
--- split most recent split excluding :Lex
-vim.cmd([[
-  augroup NetrwSplitMappings
-    autocmd!
-    autocmd FileType netrw nnoremap <buffer> v :wincmd p <bar> vsplit <C-R>=expand('%:p:h') . '/' . expand('<cfile>')<CR><CR>
-    autocmd FileType netrw nnoremap <buffer> o :wincmd p <bar> split <C-R>=expand('%:p:h') . '/' . expand('<cfile>')<CR><CR>
-  augroup END
-]])
+
 
 -- window Resizing
 map("n", "<C-Up>", ":resize +2<CR>")
