@@ -53,6 +53,7 @@ return packer.startup(function(use)
         run = ":TSUpdate",
     }
 
+    use "RRethy/vim-illuminate" -- highlight on hover
 
     -- colorscheme
     use "rktjmp/lush.nvim" -- needed for jellybeans

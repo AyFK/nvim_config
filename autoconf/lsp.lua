@@ -150,3 +150,12 @@ treesitter.setup({
     indent = { enable = true, disable = { "" } },
 })
 
+
+-- - - - - - - - - - - - - - - - - - - - - - - - -
+-- illuminate settings
+-- - - - - - - - - - - - - - - - - - - - - - - - -
+vim.api.nvim_create_autocmd("VimEnter", {
+  callback = function()
+    require("illuminate").resume()
+  end,
+})
