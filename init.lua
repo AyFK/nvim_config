@@ -12,6 +12,7 @@ dofile(config_path .. "/autoconf/plugins.lua")
 dofile(config_path .. "/autoconf/lsp.lua")
 dofile(config_path .. "/autoconf/statusline.lua")
 dofile(config_path .. "/autoconf/gitsigns.lua")
+dofile(config_path .. "/autoconf/toggle_split.lua")
 
 
 -- for when lua translation is difficult use vimscript
